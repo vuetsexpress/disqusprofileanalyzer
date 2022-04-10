@@ -14,4 +14,27 @@
 .users td {
   padding: 10px;
   border: solid 1px;
+  text-align: center;
+}
+
+.users td:nth-child(3) {
+  font-weight: bold;
+  color: #007;
+}
+
+.users td:nth-child(4) {
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.users td:nth-child(5) {
+  font-size: 16px;
+  font-family: monospace;
+}
+
+.users td:nth-child(6) {
+  font-weight: bold;
+  font-family: monospace;
+  color: #070;
+  font-size: 16px;
 }
