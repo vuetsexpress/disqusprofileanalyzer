@@ -8,9 +8,40 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" @input="inputlink" />
+      Felhasználó profil linket szúrd be ide ( valahogy így kell kinéznie :
+      https://disqus.com/by/p_ter_m_trai/?l=hu ):
 
-      {{ users }}
+      <hr />
+
+      <input type="text" @input="inputlink" class="inputlink" />
+
+      <hr />
+
+      <table class="users">
+        <tr>
+          <td>Helyezés</td>
+          <td>Profilkép</td>
+          <td>Felhasználó</td>
+          <td>Hozzászólások</td>
+          <td>Lájkok</td>
+          <td>Lájk / hozzászólás</td>
+        </tr>
+        <tr v-for="(user, i) in users">
+          <td>{{ i + 1 }} .</td>
+          <td>
+            <img :src="user.avatar" width="50" />
+          </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.posts }}</td>
+          <td>{{ user.likes }}</td>
+          <td>{{ Math.round(user.likes/user.posts*100) / 100 }}</td>
+          <td>
+            <a :href="`/?user=https://disqus.com/by/${user.username}`"
+              >Frissít</a
+            >
+          </td>
+        </tr>
+      </table>
     </div>
     <script src="index.js"></script>
   </body>

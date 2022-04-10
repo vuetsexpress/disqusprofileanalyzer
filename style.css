@@ -1,0 +1,12 @@
+.inputlink {
+  width: 400px;
+}
+
+.users {
+  border-collapse: collapse;
+}
+
+.users td {
+  padding: 10px;
+  border: solid 1px;
+}
