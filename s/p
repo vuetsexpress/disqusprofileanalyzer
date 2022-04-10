@@ -1,3 +1,5 @@
+yarn pretty
+
 git add -A
 
 git commit -m "$*"
