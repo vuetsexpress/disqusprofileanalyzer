@@ -17,6 +17,7 @@ app.get("/users", (req, res) => {
     .find({})
     .toArray()
     .then((result) => {
+      result = result.filter((item) => item.code === 0);
       console.log(result);
       res.send(JSON.stringify(result));
     });
