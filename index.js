@@ -21,12 +21,13 @@ Vue.createApp({
           const response = user.response;
           user.likes = response.numLikesReceived;
           user.posts = response.numPosts;
+          user.lr = user.likes / (user.posts || 1);
           user.avatar = response.avatar.small.permalink;
           user.name = response.name;
           user.username = response.username;
           //delete user["response"]
         });
-        this.users = users.sort((a, b) => b.likes - a.likes);
+        this.users = users.sort((a, b) => b.lr - a.lr);
       })
     );
   },

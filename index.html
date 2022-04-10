@@ -8,12 +8,18 @@
   </head>
   <body>
     <div id="app">
-      Felhasználó profil linket szúrd be ide ( valahogy így kell kinéznie :
-      https://disqus.com/by/p_ter_m_trai/?l=hu ):
+      Felhasználó profil linkedet szúrd be ide ( valahogy így kell kinéznie :
+      <span class="profilelink">https://disqus.com/by/p_ter_m_trai/?l=hu</span>
+      ):
 
       <hr />
 
-      <input type="text" @input="inputlink" class="inputlink" />
+      <input
+        type="text"
+        @input="inputlink"
+        class="inputlink"
+        placeholder="Profil link"
+      />
 
       <hr />
 
@@ -34,7 +40,7 @@
           <td>{{ user.name }}</td>
           <td>{{ user.posts }}</td>
           <td>{{ user.likes }}</td>
-          <td>{{ Math.round(user.likes/user.posts*100) / 100 }}</td>
+          <td>{{ Math.round(user.lr * 100) / 100 }}</td>
           <td>
             <a :href="`/?user=https://disqus.com/by/${user.username}`"
               >Frissít</a
