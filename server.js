@@ -66,6 +66,10 @@ app.get("/style.css", (req, res) => {
   res.sendFile(path.join(__dirname, "style.css"));
 });
 
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "favicon.ico"));
+});
+
 client.connect((err) => {
   if (err) {
     console.error("MongoDb connection failed!");
