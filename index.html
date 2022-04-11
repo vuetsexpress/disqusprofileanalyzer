@@ -24,7 +24,13 @@
 
       <hr />
 
-      {{ users.length }} felhasználó
+      {{ users.length }} felhasználó, szűrés név szerint
+
+      <input
+        type="text"
+        placeholder="szűrési feltétel ide ..."
+        @input="searchinput"
+      />
 
       <hr />
 
@@ -37,7 +43,9 @@
           <td>Lájkok</td>
           <td>Lájk / hozzászólás</td>
         </tr>
-        <tr v-for="(user, i) in users">
+        <tr
+          v-for="(user, i) in users.filter(user => user.name.match(new RegExp(term, 'i')))"
+        >
           <td>{{ i + 1 }} .</td>
           <td>
             <img :src="user.avatar" width="50" />

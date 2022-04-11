@@ -5,11 +5,17 @@ Vue.createApp({
 
       document.location.href = `/?user=${link}`;
     },
+    searchinput(ev) {
+      const term = ev.target.value;
+
+      this.term = term;
+    },
   },
   data() {
     return {
       message: "Hello Vue!",
       users: [],
+      term: "",
     };
   },
   mounted() {
