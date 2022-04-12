@@ -1,9 +1,16 @@
 Vue.createApp({
   methods: {
     inputlink(ev) {
-      const link = ev.target.value;
+      ev.preventDefault();
+      ev.stopPropagation();
 
-      document.location.href = `/?user=${link}`;
+      const link = (ev.clipboardData || window.clipboardData).getData("text");
+
+      if (link.match(/^https:\/\/disqus.com\/by/)) {
+        document.location.href = `/?user=${link}`;
+      } else {
+        window.alert("Nem néz ki felhasználói profil linknek!");
+      }
     },
     searchinput(ev) {
       const term = ev.target.value;

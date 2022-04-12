@@ -11,13 +11,15 @@
       A felhasználói profil linkedet szúrd be ide ( valahogy így kell kinéznie :
       <span class="profilelink">https://disqus.com/by/p_ter_m_trai/?l=hu</span>
       ).<br />A link eléréshez kattints a felhasználó nevedre, majd a böngésző
-      címsorából másold ki a linket.
+      címsorából másold ki a linket. ( Ha profi vagy, akkor a felhasználó név
+      felett jobb klikkelve nyisd meg a legördülő menüt, és abból válaszd ki a
+      "Link címének másolása" lehetőséget. )
 
       <hr />
 
       <input
         type="text"
-        @input="inputlink"
+        @paste="inputlink"
         class="inputlink"
         placeholder="Profil link ide ..."
       />
