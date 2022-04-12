@@ -1,6 +1,6 @@
 Vue.createApp({
   methods: {
-    inputlink(ev) {
+    pastelink(ev) {
       ev.preventDefault();
       ev.stopPropagation();
 
@@ -11,6 +11,10 @@ Vue.createApp({
       } else {
         window.alert("Nem néz ki felhasználói profil linknek!");
       }
+    },
+    inputlink(ev) {
+      ev.target.value = "";
+      window.alert("Begépeléssel nem működik. Be kell szúrni!");
     },
     searchinput(ev) {
       const term = ev.target.value;
