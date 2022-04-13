@@ -53,7 +53,7 @@
           <td>
             <img :src="user.avatar" width="50" />
           </td>
-          <td>{{ user.name }}</td>
+          <td @click="clickuser($event, user)">{{ user.name }}</td>
           <td>{{ user.posts }}</td>
           <td>{{ user.likes }}</td>
           <td>{{ Math.round(user.lr * 100) / 100 }}</td>

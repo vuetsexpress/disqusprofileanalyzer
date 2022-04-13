@@ -1,5 +1,10 @@
 Vue.createApp({
   methods: {
+    clickuser(ev, user) {
+      if (ev.ctrlKey) {
+        document.location.href = `/?deluser=${user._id}`;
+      }
+    },
     pastelink(ev) {
       ev.preventDefault();
       ev.stopPropagation();

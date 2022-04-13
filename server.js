@@ -24,6 +24,22 @@ app.get("/users", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
+  const deluser = req.query.deluser;
+  if (deluser) {
+    users
+      .updateOne(
+        { _id: deluser },
+        {
+          $set: { code: 2 },
+        },
+        {
+          upsert: true,
+        }
+      )
+      .then((result) => {
+        console.log({ result });
+      });
+  }
   const user = req.query.user;
   if (user) {
     try {
