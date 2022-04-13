@@ -1,5 +1,10 @@
 Vue.createApp({
   methods: {
+    top20clicked(ev) {
+      ev.target.focus();
+      ev.target.select();
+      document.execCommand("copy");
+    },
     clickuser(ev, user) {
       if (ev.ctrlKey) {
         document.location.href = `/?deluser=${user._id}`;
@@ -25,6 +30,17 @@ Vue.createApp({
       const term = ev.target.value;
 
       this.term = term;
+    },
+  },
+  computed: {
+    top20() {
+      return `Lájkverseny Top 20 : ${this.users
+        .slice(0, 20)
+        .map(
+          (user, i) =>
+            `${i + 1}. ${user.name} ${Math.round(user.lr * 100) / 100}`
+        )
+        .join(" , ")}`;
     },
   },
   data() {
